@@ -2,50 +2,27 @@ package com.java.sortnames;
 
 import static org.junit.Assert.assertEquals;
 
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.Before;
 import org.junit.Test;
 
 public class SortNamesTest {
 
-	@Test
-	public void readNamesIntoPersonTest() {
-		URL resource = getClass().getClassLoader().getResource("names.txt");
-		Path path = null;
-		try {
-			path = Paths.get(resource.toURI());
-		} catch (URISyntaxException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		List<Person> list =  SortNames.readNamesIntoPerson(path);
-		assertEquals("BAKER", list.get(0).getLastName());
-		assertEquals("THEODORE", list.get(0).getFirstName());
-		assertEquals("SMITH", list.get(1).getLastName());
-		assertEquals("ANDREW", list.get(1).getFirstName());
-		assertEquals("KENT", list.get(2).getLastName());
-		assertEquals("MADISON", list.get(2).getFirstName());
-		assertEquals("SMITH", list.get(3).getLastName());
-		assertEquals("FREDRICK", list.get(3).getFirstName());
+	public SortNames sortNames;
+
+	@Before
+	public void setUp() throws Exception {
+		FileOperation fileOperation = new FileOperation();
+		sortNames = new SortNames(fileOperation);
 	}
-	
+
 	@Test
-	public void sortPersonTest() {
-		URL resource = getClass().getClassLoader().getResource("names.txt");
-		Path path = null;
-		try {
-			path = Paths.get(resource.toURI());
-		} catch (URISyntaxException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		List<Person> list =  SortNames.readNamesIntoPerson(path);
-		List<Person> sortedPersonList =SortNames.sortPerson(list);
-		
+	public void sortNameTest() {
+		List<Name> names = setUpNames();
+		List<Name> sortedPersonList = sortNames.sortPerson(names);
+
 		assertEquals("BAKER", sortedPersonList.get(0).getLastName());
 		assertEquals("THEODORE", sortedPersonList.get(0).getFirstName());
 		assertEquals("KENT", sortedPersonList.get(1).getLastName());
@@ -54,6 +31,16 @@ public class SortNamesTest {
 		assertEquals("ANDREW", sortedPersonList.get(2).getFirstName());
 		assertEquals("SMITH", sortedPersonList.get(3).getLastName());
 		assertEquals("FREDRICK", sortedPersonList.get(3).getFirstName());
+	}
+
+	private List<Name> setUpNames() {
+		List<Name> names = new ArrayList<Name>();
+		names.add(new Name("BAKER", "THEODORE"));
+		names.add(new Name("SMITH", "ANDREW"));
+		names.add(new Name("KENT", "MADISON"));
+		names.add(new Name("SMITH", "FREDRICK"));
+
+		return names;
 	}
 
 }
