@@ -19,7 +19,7 @@ import org.junit.Test;
 
 public class FileOperationTest {
 
-	public FileOperation fileOps;
+	public FileOps fileOps;
 
 	@Before
 	public void setUp() throws Exception {

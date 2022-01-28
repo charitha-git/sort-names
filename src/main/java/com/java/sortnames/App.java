@@ -17,7 +17,7 @@ public class App {
 	 */
 
 	public static void main(String[] args) throws FileNotFoundException, IOException {
-		FileOperation fileOperation = new FileOperation();
+		FileOps fileOperation = new FileOperation();
 		SortNames sortNames = new SortNames(fileOperation);
 		sortNames.sortNames(args);
 

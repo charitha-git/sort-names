@@ -14,7 +14,7 @@ public class SortNamesTest {
 
 	@Before
 	public void setUp() throws Exception {
-		FileOperation fileOperation = new FileOperation();
+		FileOps fileOperation = new FileOperation();
 		sortNames = new SortNames(fileOperation);
 	}
 
