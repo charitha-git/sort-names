@@ -14,9 +14,9 @@ names.
 + Type the following command:
 
 ```bash
-$ javac -d output src\main\java\com\java\*.java
-$ java SortNames names.txt
+$ javac -d output src\main\java\com\java\sortnames\*.java
+$ java App C:/files/names.txt
 ```
 
 ## What This Program Does
-This program will read a text file that contains list of string, and then sort the given string by last name and then by first name, after that will print out sorted string to the screen and also write sorted string into the text file.
+This program will read a text file that contains list of string, and then sort the given string by last name and then by first name, after that will print out sorted string to the screen and also write sorted string into the new text file.
