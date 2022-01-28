@@ -13,9 +13,9 @@ import java.util.stream.Collectors;
  */
 public class SortNames {
 
-	private FileOperation fileOperation;
+	private FileOps fileOperation;
 
-	public SortNames(FileOperation fileOperation) {
+	public SortNames(FileOps fileOperation) {
 		this.fileOperation = fileOperation;
 	}
 
