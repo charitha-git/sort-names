@@ -101,7 +101,7 @@ public class FileOperationTest {
 	}
 
 	@Test(expected = Exception.class)
-	public void writeSortedNamesIOExceptionFailure() throws FileNotFoundException, IOException {
+	public void writeSortedNamesExceptionFailure() throws IOException {
 		Path path = Paths.get("/");
 		fileOps.writeSortedNames(path.toFile(), new ArrayList<Name>());
 	}
