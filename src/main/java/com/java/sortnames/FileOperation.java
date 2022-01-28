@@ -33,7 +33,7 @@ public class FileOperation implements FileOps {
 			BufferedReader bufferedReader = new BufferedReader(fileReader);
 
 			while ((line = bufferedReader.readLine()) != null) {
-				String[] fullName = line.split(", ");
+				String[] fullName = line.split(separator);
 				if (fullName.length == 2) {
 					Name name = new Name(fullName[0], fullName[1]);
 					nameList.add(name);
